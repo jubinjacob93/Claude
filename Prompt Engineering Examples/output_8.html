@@ -1,0 +1,427 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">8.0 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">100.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a budget-conscious traveler visiting Tokyo with limited time and preference for street food and free attractions</td>
+                <td class="prompt-inputs"><strong>destination:</strong> Tokyo<br><strong>duration:</strong> 2 days<br><strong>budget:</strong> $150<br><strong>interests:</strong> street food, free attractions, local culture</td>
+                <td class="criteria">• Itinerary fits within 2 days and respects the $150 budget<br>• Includes multiple street food experiences and free attractions<br>• Provides a concise, day-by-day schedule that is easy to follow</td>
+                <td class="output"><pre># Tokyo 2-Day Itinerary ($150 Budget)
+
+## Day 1: Street Food & Historic Culture
+
+**Morning (8:00 AM - 12:30 PM)**
+- **Breakfast** at a convenience store or street vendor: $3-5
+- **Tsukiji Outer Market Walking Tour** (self-guided): FREE
+  - Explore fresh seafood, produce, and street food stalls
+  - Sample takoyaki, tamagoyaki (egg rolls), and fresh sushi
+  - Duration: 2 hours
+  - *Tip: Arrive early for best selection*
+
+**Afternoon (1:00 PM - 5:00 PM)**
+- **Lunch** at a ramen or udon shop: $6-8
+- **Senso-ji Temple & Asakusa District Exploration**: FREE
+  - Visit Tokyo's oldest temple (free to enter grounds)
+  - Explore Nakamise shopping street for local goods and street food
+  - Walk along Sumida River
+  - Duration: 2.5 hours
+- **Street food tasting**: takoyaki, okonomiyaki, dango: $8-10
+
+**Evening (5:00 PM - 8:00 PM)**
+- Rest at a park or neighborhood café (free)
+- **Dinner** at a local izakaya or ramen restaurant: $8-10
+- Walk through illuminated Asakusa streets (free)
+
+**Day 1 Budget: ~$35-45**
+
+---
+
+## Day 2: Local Markets & Contemporary Culture
+
+**Morning (9:00 AM - 1:00 PM)**
+- **Breakfast** at a local bakery or convenience store: $3-5
+- **Ameya-Yokocho Market Walking Tour** (self-guided): FREE
+  - Experience a lively traditional shopping street
+  - Sample street food: yakitori skewers, fresh fruit, mochi
+  - Browse vintage items and local products
+  - Duration: 2 hours
+
+**Afternoon (2:00 PM - 6:00 PM)**
+- **Lunch** at a market food stall or small restaurant: $6-8
+- **Meiji Shrine & Yoyogi Park**: FREE
+  - Explore one of Tokyo's most important shrines
+  - Walk through forested grounds
+  - Observe local rituals and culture
+  - Duration: 1.5-2 hours
+- **Harajuku District Exploration**: FREE
+  - Walk through Takeshita Street (famous for youth culture)
+  - Explore side streets and local boutiques
+  - People-watching and street food (crepes, etc.): $5-8
+  - Duration: 1.5 hours
+
+**Evening (6:00 PM onwards)**
+- **Dinner** at a standing soba shop or casual eatery: $6-8
+- Explore a neighborhood on foot (free evening stroll)
+
+**Day 2 Budget: ~$30-40**
+
+---
+
+## Budget Summary
+
+| Category | Cost |
+|----------|------|
+| Accommodation* | $40-60 |
+| Food (6 meals + snacks) | $60-70 |
+| Metro/Transit** | $15-20 |
+| Activities (all free) | $0 |
+| **Total** | **~$150** |
+
+*Budget assumes budget capsule hotel or hostel in Asakusa/Ueno area ($20-30/night)
+**JR Pass or prepaid IC card (Suica/Pasmo) for metro rides
+
+---
+
+## Money-Saving Tips
+
+✓ Eat at convenience stores (7-Eleven, Lawson, FamilyMart) for cheap meals ($3-6)
+✓ Visit temples and shrines (most are FREE)
+✓ Get a Suica/Pasmo card for unlimited transit ($10-15, includes deposit)
+✓ Eat standing at ramen/soba shops (20-30% cheaper than seated)
+✓ Street food is cheaper than restaurants (sample multiple items for $1-3 each)
+✓ Free walking tours in English available at major stations (tip-based)
+✓ Bring a reusable water bottle (free water fountains at temples and stations)
+
+---
+
+##</pre></td>
+                <td class="score-col"><span class="score score-high">9</span></td>
+                <td class="reasoning">The solution comprehensively meets all mandatory requirements: (1) Personalization is excellent with street food experiences woven throughout (takoyaki, okonomiyaki, yakitori, crepes) and free attractions dominating the schedule (temples, markets, parks); (2) Daily structure is clear with specific times and locations for each activity; (3) Activity details include suggested times and relevant locations; (4) Budget alignment is demonstrated with a detailed breakdown showing how $150 is allocated. The itinerary is concise, easy to follow, and directly addresses all stated interests. Minor weaknesses around accommodation clarity and transit cost precision don't violate mandatory requirements but represent areas where precision could be improved. The solution successfully balances a tight budget with authentic cultural experiences and abundant street food opportunities.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with a luxury-focused tourist exploring Paris with interest in fine dining, high-end museums, and exclusive experiences</td>
+                <td class="prompt-inputs"><strong>destination:</strong> Paris, France<br><strong>duration:</strong> 2 days<br><strong>budget:</strong> $5,000<br><strong>interests:</strong> Fine dining, high-end museums, exclusive experiences, luxury shopping, wine tasting</td>
+                <td class="criteria">• Itinerary fits within 2 days with realistic timing and travel between locations<br>• Includes fine dining restaurants, premium museums, and exclusive luxury experiences aligned with stated interests<br>• Activities and experiences are feasible within the $5,000 budget for one person</td>
+                <td class="output"><pre># Paris 2-Day Luxury Itinerary ($5,000 Budget)
+
+## Day 1: Haute Cuisine & Museum Masterpieces
+
+**Morning (9:00 AM - 12:30 PM)**
+- **Breakfast** at Ladurée Champs-Élysées: $45-60
+  - Iconic French pastries and champagne
+  - Duration: 1 hour
+
+- **Louvre Museum - Private Guided Tour**: $400-500 (2-3 people group rate)
+  - Skip-the-line access with art historian guide
+  - Focus on masterpieces: Mona Lisa, Venus de Milo, Winged Victory
+  - Duration: 2.5 hours
+  - *Reserve in advance for premium experience*
+
+**Afternoon (1:00 PM - 5:00 PM)**
+- **Lunch** at Michelin-starred *L'Astrance* (reservation essential): $200-280
+  - Innovative French cuisine, 3-course tasting menu
+  - Located in 7th arrondissement, near Louvre
+  - Duration: 2 hours
+
+- **Luxury Shopping** - Champs-Élysées & Triangle d'Or: FREE to browse
+  - High-end boutiques: Louis Vuitton, Chanel, Hermès, Dior
+  - Window shopping and exploration
+  - Duration: 1.5 hours
+
+**Evening (6:00 PM - 10:00 PM)**
+- **Rest at accommodation** (Marais district boutique hotel recommended)
+- **Dinner** at Michelin-starred *Le Jules Verne* (Eiffel Tower): $350-450
+  - Fine dining with iconic tower views
+  - 3-course menu + wine pairing
+  - Duration: 2.5 hours
+  - *Book weeks in advance*
+
+**Day 1 Subtotal: ~$1,395-1,590**
+
+---
+
+## Day 2: Wine, Exclusive Experiences & Art
+
+**Morning (10:00 AM - 1:00 PM)**
+- **Breakfast** at hotel or café: $40-50
+
+- **Musée d'Orsay - Private Viewing**: $350-450 (small group, art expert guide)
+  - Impressionist & Post-Impressionist masterpieces
+  - Works by Monet, Renoir, Van Gogh, Degas
+  - No crowds, curated experience
+  - Duration: 2 hours
+  - *Includes skip-the-line access*
+
+**Afternoon (2:00 PM - 6:00 PM)**
+- **Lunch** at Michelin-starred *Septime*: $180-240
+  - Contemporary French cuisine
+  - Seasonal menu, excellent wine selection
+  - Duration: 1.5 hours
+
+- **Premium Wine Tasting Experience** - Caves Taillevent or similar: $250-350
+  - Expert sommelier-led tasting (5-6 wines)
+  - Focus on Burgundy & Bordeaux grands crus
+  - Cheese & charcuterie pairings included
+  - Duration: 1.5-2 hours
+  - *Located near Élysée Palace, central location*
+
+**Evening (6:00 PM - 10:00 PM)**
+- **Exclusive Shopping Experience**:
+  - Private appointment at haute couture boutique (Dior, Chanel): FREE (staff assistance)
+  - OR luxury spa treatment (60-min massage at *Spa Nolinski*): $250-300
+  - Duration: 1-1.5 hours
+
+- **Farewell Dinner** at Michelin 3-star *Alléno Paris au Pavillon Ledoyen*: $450-600
+  - Exceptional gastronomic experience
+  - 5-7 course tasting menu + wine pairings
+  - Seine views, intimate setting
+  - Duration: 3 hours
+
+**Day 2 Subtotal: ~$1,520-1,990**
+
+---
+
+## Budget Summary
+
+| Category | Cost |
+|----------|------|
+| **Accommodation** (2 nights, luxury boutique hotel in Marais/</pre></td>
+                <td class="score-col"><span class="score score-medium">7</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it's personalized to Paris with luxury focus, has clear daily structure with specific times and locations, includes detailed activity information, and the itemized costs demonstrate budget alignment (subtotals ~$2,915-3,580 for activities alone, leaving ~$1,400-2,000 for accommodation and transport within $5,000). However, the incomplete budget summary table and missing accommodation pricing create a significant deficiency. The itinerary is realistic and well-structured, but the truncated conclusion undermines confidence in the complete budget analysis. The solution demonstrates strong planning and meets core criteria, but the incomplete presentation prevents a higher score.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with an adventure-seeking backpacker visiting Barcelona with emphasis on outdoor activities, local neighborhoods, and nightlife despite a 48-hour constraint</td>
+                <td class="prompt-inputs"><strong>destination:</strong> Barcelona<br><strong>duration:</strong> 2 days<br><strong>budget:</strong> $400<br><strong>interests:</strong> outdoor activities, local neighborhoods, nightlife, adventure sports, street culture</td>
+                <td class="criteria">• Itinerary fits within 2 days and includes specific time blocks for each activity<br>• Includes at least 2 outdoor/adventure activities and visits to 2+ local neighborhoods beyond tourist areas<br>• Incorporates nightlife recommendations suitable for backpackers<br>• All recommendations are realistic within the $400 budget</td>
+                <td class="output"><pre># Barcelona 2-Day Itinerary ($400 Budget)
+
+## Day 1: Street Culture & Outdoor Adventure
+
+**Morning (8:00 AM - 12:30 PM)**
+- **Breakfast** at a local café in Gothic Quarter: €6-8
+- **Gothic Quarter Walking Tour** (self-guided): FREE
+  - Explore medieval streets, hidden plazas, and historic architecture
+  - Visit Barcelona Cathedral exterior and narrow alleyways
+  - Duration: 2.5 hours
+  - *Great for street culture observation and photography*
+
+**Afternoon (1:00 PM - 5:00 PM)**
+- **Lunch** at a local tapas bar (menú del día): €12-14
+- **Street Art & Graffiti Tour** - El Raval/Sant Antoni: FREE (self-guided)
+  - Explore vibrant murals and contemporary street art
+  - Visit underground art galleries and artist studios
+  - Duration: 2-2.5 hours
+  - *Alternative: Join a tip-based street art walking tour (€5-10)*
+
+**Evening (5:00 PM - 8:00 PM)**
+- Explore Sant Antoni Market and neighborhood: FREE
+- **Dinner** at a budget-friendly local restaurant: €13-16
+- Evening walk along Port Vell waterfront: FREE
+
+**Day 1 Budget: ~€50-55**
+
+---
+
+## Day 2: Adventure Sports & Nightlife
+
+**Morning (8:30 AM - 1:00 PM)**
+- **Breakfast**: €6-8
+- **Parkour/Street Sport Experience** - Urban exploration: €25-35
+  - Join a beginner parkour class in Ciutadella Park area
+  - OR: Rock climbing at an indoor gym (€20-30)
+  - Duration: 2-3 hours
+  - *Operators: Barcelona Parkour School, Bloc30 Climbing Gym*
+
+**Afternoon (2:00 PM - 6:00 PM)**
+- **Lunch** at neighborhood restaurant: €12-15
+- **La Boqueria Market & Gràcia District**: FREE
+  - Experience local food culture and bohemian neighborhood
+  - Explore street performers, plazas, and local shops
+  - Duration: 2 hours
+- **Skateboarding or BMX at local spots**: FREE
+  - Skate parks: Parc del Centre/Parc de la Creueta del Coll
+  - Watch and join local riders
+
+**Evening (7:00 PM onwards)**
+- **Dinner** at a tapas bar: €13-16
+- **Nightlife Experience** - Choose one or combine:
+  - **Vermouth Hour** (18:00-20:00): €2-3 per drink at local bars (FREE/authentic experience)
+  - **Club/Live Music Venue**: €10-15 entry (Razzmatazz, Sidecar, Jamboree)
+  - **Late-night street scene**: Wander Plaza Reial, Las Ramblas, or Maremagnum
+  - Duration: 3-4 hours
+
+**Day 2 Budget: ~€95-115**
+
+---
+
+## Accommodation Recommendation
+
+**Location:** Near Plaça de Catalunya or Passeig de Gràcia Metro Stations
+- **Budget Hostel Option:** Kabul Hostel Barcelona or Equity Point Gothic (€25-35/night)
+  - Close to Gothic Quarter and public transit
+  - Access to metro Line 1, 3 (direct to all neighborhoods)
+- **Airbnb Share:** €30-50/night in Gràcia or Sant Antoni
+  - Near street culture hubs and nightlife
+  - Proximity to adventure sport locations
+
+**Transit:** Purchase T-Casual card (10 metro/bus rides: €11) - valid entire trip
+
+---
+
+## Budget Summary
+
+| Category | Cost |
+|----------|------|
+| Accommodation (1-2 nights) | $50-70 |
+| Food (6 meals + snacks) | $70-90 |
+| Adventure Sports (parkour/climbing) | $25-35 |
+| Museums/Attractions | $0 |
+| Nightlife (clubs/drinks) |</pre></td>
+                <td class="score-col"><span class="score score-high">8</span></td>
+                <td class="reasoning">The solution meets all mandatory requirements: it fits within 2 days with clear time blocks, includes 4+ outdoor/adventure activities (parkour, climbing, skateboarding, BMX, street art walking), visits 4+ local neighborhoods (Gothic Quarter, El Raval, Sant Antoni, Gràcia), incorporates backpacker-friendly nightlife (clubs, vermouth bars, street scenes), and stays well within budget. The itinerary is highly personalized to all five stated interests. The primary weakness is the incomplete budget table, which is a presentation issue rather than a content problem. All activity details include times and locations. The solution demonstrates strong practical knowledge of Barcelona and backpacker travel.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    

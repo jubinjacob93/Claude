@@ -1,0 +1,393 @@
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prompt Evaluation Report</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                line-height: 1.6;
+                margin: 0;
+                padding: 20px;
+                color: #333;
+            }
+            .header {
+                background-color: #f0f0f0;
+                padding: 20px;
+                border-radius: 5px;
+                margin-bottom: 20px;
+            }
+            .summary-stats {
+                display: flex;
+                justify-content: space-between;
+                flex-wrap: wrap;
+                gap: 10px;
+            }
+            .stat-box {
+                background-color: #fff;
+                border-radius: 5px;
+                padding: 15px;
+                box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+                flex-basis: 30%;
+                min-width: 200px;
+            }
+            .stat-value {
+                font-size: 24px;
+                font-weight: bold;
+                margin-top: 5px;
+            }
+            table {
+                width: 100%;
+                border-collapse: collapse;
+                margin-top: 20px;
+            }
+            th {
+                background-color: #4a4a4a;
+                color: white;
+                text-align: left;
+                padding: 12px;
+            }
+            td {
+                padding: 10px;
+                border-bottom: 1px solid #ddd;
+                vertical-align: top;
+            }
+            tr:nth-child(even) {
+                background-color: #f9f9f9;
+            }
+            .output-cell {
+                white-space: pre-wrap;
+            }
+            .score {
+                font-weight: bold;
+                padding: 5px 10px;
+                border-radius: 3px;
+                display: inline-block;
+            }
+            .score-high {
+                background-color: #c8e6c9;
+                color: #2e7d32;
+            }
+            .score-medium {
+                background-color: #fff9c4;
+                color: #f57f17;
+            }
+            .score-low {
+                background-color: #ffcdd2;
+                color: #c62828;
+            }
+            .output {
+                overflow: auto;
+                white-space: pre-wrap;
+            }
+
+            .output pre {
+                background-color: #f5f5f5;
+                border: 1px solid #ddd;
+                border-radius: 4px;
+                padding: 10px;
+                margin: 0;
+                font-family: 'Consolas', 'Monaco', 'Courier New', monospace;
+                font-size: 14px;
+                line-height: 1.4;
+                color: #333;
+                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+                overflow-x: auto;
+                white-space: pre-wrap; 
+                word-wrap: break-word; 
+            }
+
+            td {
+                width: 20%;
+            }
+            .score-col {
+                width: 80px;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="header">
+            <h1>Prompt Evaluation Report</h1>
+            <div class="summary-stats">
+                <div class="stat-box">
+                    <div>Total Test Cases</div>
+                    <div class="stat-value">3</div>
+                </div>
+                <div class="stat-box">
+                    <div>Average Score</div>
+                    <div class="stat-value">3.7 / 10</div>
+                </div>
+                <div class="stat-box">
+                    <div>Pass Rate (≥7)</div>
+                    <div class="stat-value">0.0%</div>
+                </div>
+            </div>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Scenario</th>
+                    <th>Prompt Inputs</th>
+                    <th>Solution Criteria</th>
+                    <th>Output</th>
+                    <th>Score</th>
+                    <th>Reasoning</th>
+                </tr>
+            </thead>
+            <tbody>
+    
+            <tr>
+                <td>Testing with a beginner fitness level and no equipment access - verifies the prompt can create a basic, accessible 4-day gym plan using only bodyweight or minimal equipment</td>
+                <td class="prompt-inputs"><strong>height:</strong> 5'10"<br><strong>weight:</strong> 180 lbs<br><strong>goal:</strong> build muscle and increase strength<br><strong>restrictions:</strong> beginner fitness level, no gym equipment access</td>
+                <td class="criteria">• Provides a structured 4-day weekly workout plan<br>• Uses only bodyweight or minimal equipment exercises suitable for beginners<br>• Includes clear exercise descriptions, sets, and reps for each workout day<br>• Organizes exercises logically to avoid overtraining muscle groups</td>
+                <td class="output"><pre># 4-Day Home Workout Plan for Muscle Building & Strength
+
+## Overview
+**Goal:** Build muscle and increase strength using bodyweight exercises
+**Duration:** 4 weeks (with progression guidelines)
+**Session Length:** 45-55 minutes
+**Recovery:** Rest days between training days
+
+---
+
+## Weekly Schedule
+
+| Day | Focus | Duration |
+|-----|-------|----------|
+| **Day 1** | Push (Chest, Shoulders, Triceps) | ~50 min |
+| **Day 2** | Pull (Back, Biceps) + Core | ~45 min |
+| **Day 3** | Rest/Active Recovery | — |
+| **Day 4** | Lower Body (Legs, Glutes) | ~50 min |
+| **Day 5** | Full Body Strength | ~50 min |
+| **Day 6-7** | Rest | — |
+
+---
+
+## Day 1: PUSH
+
+### Warm-up (5 minutes)
+- Arm circles: 30 seconds each direction
+- Shoulder rolls: 30 seconds
+- Scapular push-ups: 10 reps
+- Cat-cow stretches: 10 reps
+
+### Main Workout
+
+| Exercise | Sets × Reps | Rest |
+|----------|------------|------|
+| **Push-ups** (standard or incline) | 4 × 8-12 | 90 sec |
+| **Pike Push-ups** (shoulders) | 3 × 6-10 | 90 sec |
+| **Diamond Push-ups** (triceps) | 3 × 8-12 | 60 sec |
+| **Tricep Dips** (chair/bed) | 3 × 8-12 | 60 sec |
+| **Push-up to T-Rotation** | 3 × 10 each side | 45 sec |
+
+### Cool-down (5 minutes)
+- Chest doorway stretch: 30 sec each side
+- Tricep stretch: 30 sec each arm
+
+---
+
+## Day 2: PULL + CORE
+
+### Warm-up (5 minutes)
+- Jumping jacks: 30 seconds
+- Arm swings: 30 seconds
+- Cat-cow: 10 reps
+- Dead bugs: 10 reps
+
+### Main Workout
+
+| Exercise | Sets × Reps | Rest |
+|----------|------------|------|
+| **Inverted Rows** (under table) | 4 × 8-12 | 90 sec |
+| **Doorway Pull-ups** (if available) or **Resistance Band Rows** | 4 × 6-10 | 90 sec |
+| **Reverse Snow Angels** (prone) | 3 × 12-15 | 60 sec |
+| **Plank** | 3 × 30-60 sec | 60 sec |
+| **Superman Holds** | 3 × 20-30 sec | 60 sec |
+| **Bicycle Crunches** | 3 × 15-20 each side | 45 sec |
+
+### Cool-down (5 minutes)
+- Child's pose: 45 seconds
+- Cat stretch: 45 seconds
+
+---
+
+## Day 3: ACTIVE RECOVERY
+- Light walking: 20-30 minutes, OR
+- Yoga/stretching routine: 20-30 minutes, OR
+- Easy-paced sports activity
+
+**Focus:** Mobility and blood flow without taxing muscles
+
+---
+
+## Day 4: LOWER BODY
+
+### Warm-up (5 minutes)
+- Leg swings: 10 each direction per leg
+- Bodyweight squats: 15 reps
+- Glute bridges: 10 reps
+- Hip circles: 10 each direction
+
+### Main Workout
+
+| Exercise | Sets × Reps | Rest |
+|----------|------------|------|
+| **Bodyweight Squats** | 4 × 12-15 | 90 sec |
+| **Bulgarian Split Squats** (rear foot elevated) | 3 × 10 each leg | 90 sec |
+| **Glute Bridges**</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">The solution demonstrates strong foundational planning with well-organized workout days, appropriate exercise selection for beginners without gym equipment, and proper inclusion of sets/reps/rest periods. However, it contains a CRITICAL MANDATORY REQUIREMENT VIOLATION: the plan is incomplete (Day 4 cuts off, Day 5 is missing) and fails to deliver a complete 4-day workout structure as explicitly required. Additionally, the weekly schedule shows 5 training days rather than 4, creating structural confusion. While the content that is present is high-quality and goal-aligned, the incompleteness and structural mismatch with the stated 4-day frequency are disqualifying issues.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with an advanced athlete focused on hypertrophy/muscle building - validates that the prompt can tailor intensity, volume, and exercise selection for experienced lifters with specific goals</td>
+                <td class="prompt-inputs"><strong>height:</strong> 6'1"<br><strong>weight:</strong> 210 lbs<br><strong>goal:</strong> muscle gain (hypertrophy)<br><strong>restrictions:</strong> none</td>
+                <td class="criteria">• Plan allocates 4 workout days with appropriate volume and intensity for hypertrophy (8-12 rep ranges, progressive overload)<br>• Exercise selection targets major muscle groups with compound and isolation movements suitable for advanced lifters<br>• Plan includes adequate recovery guidance between sessions for muscle growth</td>
+                <td class="output"><pre># 4-Day Muscle Gain Program for 6'1", 210 lbs
+
+## Program Overview
+**Goal:** Hypertrophy (muscle building)  
+**Duration:** 4 days/week  
+**Focus:** Upper/Lower split for balanced development  
+**Intensity:** Moderate-heavy with progressive overload
+
+---
+
+## Weekly Schedule
+
+| Day | Focus | Duration |
+|-----|-------|----------|
+| **Day 1** | Upper Body (Push) | 55-60 min |
+| **Day 2** | Lower Body | 60-65 min |
+| **Day 3** | Rest/Light activity | — |
+| **Day 4** | Upper Body (Pull) | 55-60 min |
+| **Day 5** | Lower Body | 60-65 min |
+| **Days 6-7** | Rest | — |
+
+---
+
+## Day 1: Upper Body Push
+
+| Exercise | Sets | Reps | Rest | Notes |
+|----------|------|------|------|-------|
+| **Barbell Bench Press** | 4 | 6-8 | 2:30 min | Primary compound; focus on form |
+| **Incline Dumbbell Press** | 3 | 8-10 | 2:00 min | Targets upper chest |
+| **Barbell Rows** | 3 | 8-10 | 2:00 min | Maintains back balance |
+| **Machine Chest Fly** | 3 | 10-12 | 1:30 min | Isolation; controlled movement |
+| **Lateral Raises** | 3 | 12-15 | 1:00 min | Shoulder width |
+| **Tricep Rope Pushdown** | 3 | 10-12 | 1:00 min | Finish triceps |
+| **Face Pulls** | 2 | 15 | 1:00 min | Shoulder health |
+
+---
+
+## Day 2: Lower Body
+
+| Exercise | Sets | Reps | Rest | Notes |
+|----------|------|------|------|-------|
+| **Barbell Back Squat** | 4 | 6-8 | 2:30 min | Primary compound; deep range of motion |
+| **Romanian Deadlifts** | 3 | 8-10 | 2:00 min | Hamstring & glute focus |
+| **Leg Press** | 3 | 8-10 | 2:00 min | Secondary compound |
+| **Leg Curls** | 3 | 10-12 | 1:30 min | Isolation; hamstring peak contraction |
+| **Walking Lunges** | 3 | 10/leg | 1:30 min | Unilateral strength |
+| **Leg Extensions** | 3 | 12-15 | 1:00 min | Quad isolation |
+| **Seated Calf Raises** | 3 | 12-15 | 1:00 min | Calf development |
+
+---
+
+## Day 4: Upper Body Pull
+
+| Exercise | Sets | Reps | Rest | Notes |
+|----------|------|------|------|-------|
+| **Weighted Pull-ups or Lat Pulldown** | 4 | 6-8 | 2:30 min | Primary back compound |
+| **Barbell Rows** | 3 | 8-10 | 2:00 min | Heavy rowing variation |
+| **Seal Rows** | 3 | 8-10 | 2:00 min | Chest-supported; reduced strain |
+| **Face Pulls** | 3 | 12-15 | 1:30 min | Rear delts & shoulder health |
+| **Barbell Curls** | 3 | 8-10 | 1:30 min | Bicep primary |
+| **Machine Row** | 3 | 10-12 | 1:30 min | Isolation back work |
+| **Incline Dumbbell Curls** | 2 | 10-12 | 1:00 min |</pre></td>
+                <td class="score-col"><span class="score score-low">3</span></td>
+                <td class="reasoning">The solution violates a mandatory requirement by structuring the plan for 5 workout days instead of 4. While Days 1-2 and 4-5 are labeled, this creates ambiguity about which 4 days constitute the weekly program. The exercise selection, rep ranges, and rest periods are appropriate for hypertrophy and the person's profile (6'1", 210 lbs, no restrictions). However, the structural error is a critical failure of the '4-day structure' mandatory requirement. Additionally, the plan lacks explicit recovery guidance between sessions (nutrition, sleep recommendations, deload protocols) and has a formatting issue with the final exercise. These deficiencies prevent the solution from meeting all mandatory requirements.</td>
+            </tr>
+        
+            <tr>
+                <td>Testing with time constraints and injury considerations - checks that the prompt can accommodate practical limitations (e.g., 45-minute sessions, lower back issues) while maintaining program effectiveness</td>
+                <td class="prompt-inputs"><strong>height:</strong> 5'10"<br><strong>weight:</strong> 185 lbs<br><strong>goal:</strong> increase strength and muscle gain<br><strong>restrictions:</strong> lower back issues, 45-minute session time limit per gym visit</td>
+                <td class="criteria">• Provides a 4-day per week workout plan with exercises suitable for someone with lower back restrictions<br>• Each workout session fits within the 45-minute time constraint<br>• Plan includes specific exercises, sets, and reps that support strength and muscle gain goals<br>• Includes modifications or alternatives to avoid aggravating lower back issues</td>
+                <td class="output"><pre># 4-Day Personalized Strength & Muscle Building Plan
+
+## Profile Summary
+- **BMI:** 26.5 (slightly overweight) | **Goal:** Hypertrophy + Strength
+- **Key Consideration:** Lower back issues require modified exercises and careful form
+- **Session Limit:** 45 minutes (includes warm-up/cool-down)
+
+---
+
+## Weekly Schedule Overview
+
+| Day | Focus | Duration |
+|-----|-------|----------|
+| **Monday** | Upper Body Push | 45 min |
+| **Tuesday** | Lower Body (Back-Friendly) | 45 min |
+| **Wednesday** | Rest/Light Activity | — |
+| **Thursday** | Upper Body Pull | 45 min |
+| **Friday** | Lower Body + Core | 45 min |
+| **Sat-Sun** | Rest or Active Recovery | — |
+
+---
+
+## 🏋️ MONDAY: Upper Body Push
+
+**Warm-up (5 min):** Arm circles, band pull-aparts, 5 min light cardio
+
+| Exercise | Sets | Reps | Rest | Notes |
+|----------|------|------|------|-------|
+| **Dumbbell Bench Press** (Flat) | 4 | 6-8 | 2 min | Primary strength builder |
+| **Incline Dumbbell Press** | 3 | 8-10 | 90 sec | Chest and front shoulders |
+| **Dumbbell Shoulder Press** | 3 | 8-10 | 90 sec | Seated to reduce back strain |
+| **Tricep Dips** (Assisted if needed) | 3 | 8-10 | 60 sec | Use machine or bench |
+| **Lateral Raises** (Dumbbells) | 2 | 12-15 | 60 sec | Light weight, high reps |
+
+**Cool-down (2 min):** Chest and shoulder stretches
+
+---
+
+## 🏋️ TUESDAY: Lower Body (Back-Friendly)
+
+**Warm-up (5 min):** Glute bridges, leg swings, bodyweight squats
+
+| Exercise | Sets | Reps | Rest | Notes |
+|----------|------|------|------|-------|
+| **Goblet Squats** | 4 | 8-10 | 2 min | Easier on lower back than barbell |
+| **Romanian Deadlifts** (Light) | 3 | 8-10 | 90 sec | Hinge at hips, slight knee bend—CRITICAL for back |
+| **Leg Press** (Machine) | 3 | 10-12 | 90 sec | Controlled descent, avoid locking knees |
+| **Leg Curls** (Machine) | 3 | 10-12 | 60 sec | Protects lower back |
+| **Calf Raises** (Machine or Standing) | 2 | 12-15 | 60 sec | Lighter load |
+
+**Cool-down (2 min):** Hip flexor and hamstring stretches
+
+---
+
+## 🏋️ THURSDAY: Upper Body Pull
+
+**Warm-up (5 min):** Cat-cow stretches, dead hangs (10-15 sec), band rows
+
+| Exercise | Sets | Reps | Rest | Notes |
+|----------|------|------|------|-------|
+| **Assisted Pull-ups or Lat Pulldowns** | 4 | 6-8 | 2 min | Primary strength builder |
+| **Dumbbell Rows** (Single Arm) | 3 | 8-10 | 90 sec | Supports unilateral strength balance |
+| **Chest-Supported Row** (Machine) | 3 | 8-10 | 90 sec | Removes lower back stress entirely |
+| **Barbell Curls** or **Dumbbell Curls** | 3 | 8-10 | 60 sec | Strict form, no swinging |
+| **Face Pulls** (Cable) | 2 | 12-15 | 60 sec | Shoulder health and rear delts</pre></td>
+                <td class="score-col"><span class="score score-low">5</span></td>
+                <td class="reasoning">The solution demonstrates strong understanding of exercise selection for lower back safety and appropriate rep ranges for hypertrophy/strength. The 4-day split structure is sound and well-organized. However, there are critical deficiencies: (1) The solution is literally incomplete, cutting off mid-Friday workout, which violates the mandatory requirement to 'clearly specify exercises for all four workout days'; (2) The time math is questionable—while theoretically fitting 45 minutes, the plan doesn't account for exercise transitions and may be unrealistic; (3) Personalization is minimal beyond BMI. The incomplete nature of the solution is a significant flaw that prevents a higher score, though the quality of what is provided is generally strong.</td>
+            </tr>
+        
+            </tbody>
+        </table>
+    </body>
+    </html>
+    
