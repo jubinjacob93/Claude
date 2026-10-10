@@ -1,4 +1,4 @@
-# Prompt Engineering Examples
+# Building with Claude API — Notebooks
 
 All notebooks from working through Building with Claude API. Includes requests, streaming, structured prompts, prompt evaluation and engineering, tools and MCP. 
 
